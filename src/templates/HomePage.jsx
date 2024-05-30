@@ -2,7 +2,7 @@ import { getCoinList } from "../services/cryptoApi.js";
 
 import { useEffect, useState } from "react";
 import TableCoin from "../modules/TableCoin";
-import Pagination from "../modules/pagination.jsx";
+import Pagination from "../modules/Pagination.jsx";
 import Search from "../modules/search.jsx";
 import Chart from "../modules/Chart.jsx";
 
@@ -31,9 +31,14 @@ function HomePage() {
   return (
     <div>
       <Search currency={currency} setCurrency={setCurrency} />
-      <TableCoin coins={coins} isLoading={isLoading} currency={currency} setChart={setChart}/>
+      <TableCoin
+        coins={coins}
+        isLoading={isLoading}
+        currency={currency}
+        setChart={setChart}
+      />
       <Pagination page={page} setPage={setPage} />
-      {!!chart && <Chart  chart={chart} setChart={setChart}/>}
+      {!!chart && <Chart chart={chart} setChart={setChart} />}
     </div>
   );
 }
